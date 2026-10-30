@@ -46,24 +46,16 @@ JSON 备份格式为 `WEIYAN_LOCAL_BACKUP`，版本 1；导入上限 35MiB，按
 
 ## 远程交付记录
 
-- 已确认 GitHub 登录身份 `accding`，并可访问此前授权的仓库；未改动公开仓库 `33333`。
-- 目标地址为 `https://github.com/accding/weiyan`，**目前尚未创建或验证存在，不能作为已交付仓库链接**。
-- `gh repo create --private` 返回 `Resource not accessible by integration (createRepository)`；官方 REST `POST /user/repos` 同样返回 HTTP 403。现有集成凭据没有创建仓库权限。
-- 用户需在 GitHub 安全页面创建名为 weiyan 的私人空仓库（不初始化 README/License/.gitignore），并确保当前 GitHub App 可访问新仓库；无需向聊天提供 Token。
-- 已完成本地 Git 提交；尚未推送、运行远程 Actions、创建 PR 或配置服务器分支保护。不能声称已经实现跨设备远程同步。
+- 目标仓库：[accding/33333](https://github.com/accding/33333)。用户已明确授权不改为私人，直接上传经过检查的源码和文档；当前可见性为 PUBLIC，不作为私人仓库交付。
+- 上传前已核实登录身份 `accding`，仓库为空，没有既有默认分支提交需要合并。使用普通 push，不覆盖文件、不 force、不改写历史。
+- 原始交接提示和 DEVELOPMENT_HANDOFF.md 保留上传时的文字；其中关于新建私人 weiyan 仓库的要求，按用户最新指令由当前公开源码仓库方案取代。
 - 基线提交：`bea4fc0`（上传的 7 个原始文件）。流程与安全工具提交：`5d64342`。完整 SHA 通过 `git log` 获取，后续状态说明另有提交。
 - 本地索引安全检查 17 个文件零发现，原型 JavaScript 语法检查与 Git 差异检查通过；合成凭据、私人数据路径和符号链接被检查器阻止。
 
-### 最新目标调整
+### 上传与回读
 
-用户随后选择复用现有 `accding/33333`（五个 3），不再依赖创建 weiyan 新仓库。原始交接文档禁止使用公开 33333 的要求，按用户最新意图调整为：仅在其改为 private 后使用；项目隐私要求保持有效。
+本次上传进行中。推送后核对远程完整 SHA、文件树和 HTML 校验值，确认仍与原始上传的 M1.01 相同；远程 Actions 和分支保护结果随后回填。不将尚未验证的操作记作完成。
 
-已回读确认 `accding/33333` 为空仓库且 visibility 为 PUBLIC。尝试官方 REST 更新 `private=true` 时返回 HTTP 403 `Resource not accessible by integration`，回读仍为 public。因此没有上传任何项目内容，也没有覆盖文件。需用户在 GitHub 仓库 Settings → General → Danger Zone → Change repository visibility 中改为 Private；完成后工具重新核验再正常推送。
+### 权限记录
 
-## 权限补齐后的接续步骤
-
-先回读 `accding/33333` 的 owner/name、`private=true`、visibility 为 private；检查默认分支和所有 refs，确认没有用户后来加入的内容。不匹配就停止，不自动覆盖已有文件。
-
-对确认的私人空仓库添加 origin，使用普通 `git push -u origin main`，不 force。若仓库出现新提交，先 fetch 比对并在独立分支处理，避免覆盖。推送后重新读取完整 main SHA、文件树、HTML blob 哈希及仓库 private 状态；等待 CI 结果，再按账户能力尝试主分支保护，并如实记录启用结果。
-
-这一步由开发工具在授权可用后执行；不需要用户把代码逐份复制到 GitHub。
+此前新建私人仓库及修改现有仓库可见性的请求均被当前 GitHub 集成以 HTTP 403 拒绝。用户现在明确选择保留现有公开仓库，因此不再等待这两项权限，也不再次请求更改可见性。
