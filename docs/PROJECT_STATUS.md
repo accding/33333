@@ -54,9 +54,15 @@ JSON 备份格式为 `WEIYAN_LOCAL_BACKUP`，版本 1；导入上限 35MiB，按
 - 基线提交：`bea4fc0`（上传的 7 个原始文件）。流程与安全工具提交：`5d64342`。完整 SHA 通过 `git log` 获取，后续状态说明另有提交。
 - 本地索引安全检查 17 个文件零发现，原型 JavaScript 语法检查与 Git 差异检查通过；合成凭据、私人数据路径和符号链接被检查器阻止。
 
+### 最新目标调整
+
+用户随后选择复用现有 `accding/33333`（五个 3），不再依赖创建 weiyan 新仓库。原始交接文档禁止使用公开 33333 的要求，按用户最新意图调整为：仅在其改为 private 后使用；项目隐私要求保持有效。
+
+已回读确认 `accding/33333` 为空仓库且 visibility 为 PUBLIC。尝试官方 REST 更新 `private=true` 时返回 HTTP 403 `Resource not accessible by integration`，回读仍为 public。因此没有上传任何项目内容，也没有覆盖文件。需用户在 GitHub 仓库 Settings → General → Danger Zone → Change repository visibility 中改为 Private；完成后工具重新核验再正常推送。
+
 ## 权限补齐后的接续步骤
 
-先回读仓库信息确认 owner/name、`private=true`、visibility 为 private；检查默认分支和所有 refs，确认没有用户后来加入的内容。不匹配就停止，不自动改变可见性或覆盖已有文件。
+先回读 `accding/33333` 的 owner/name、`private=true`、visibility 为 private；检查默认分支和所有 refs，确认没有用户后来加入的内容。不匹配就停止，不自动覆盖已有文件。
 
 对确认的私人空仓库添加 origin，使用普通 `git push -u origin main`，不 force。若仓库出现新提交，先 fetch 比对并在独立分支处理，避免覆盖。推送后重新读取完整 main SHA、文件树、HTML blob 哈希及仓库 private 状态；等待 CI 结果，再按账户能力尝试主分支保护，并如实记录启用结果。
 

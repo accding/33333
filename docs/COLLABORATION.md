@@ -1,6 +1,6 @@
 # 手机与 Windows 协同开发
 
-远程：`https://github.com/accding/weiyan`，必须保持 private。GitHub 负责源代码和设计文档同步；它不连接 Windows 桌面，不同步实时未提交文件，也不备份或同步个人日记。
+用户已改选现有仓库 `https://github.com/accding/33333`（五个 3）。它当前仍为 public，必须先改为 private 并回读确认，才能上传本项目。项目名称仍是「未言 WEIYAN」，本机目录可继续命名为 weiyan。GitHub 负责源代码和设计文档同步；它不连接 Windows 桌面，不同步实时未提交文件，也不备份或同步个人日记。
 
 ## 分支与职责
 
@@ -21,7 +21,7 @@
 
 可使用以下任务提示：
 
-> 在 accding/weiyan 的 mobile/任务名 分支完成【范围】。先拉取 main，阅读 AGENTS.md；保留独白与授权边界，用合成数据验证，不上传日记或凭据。不要改写历史、覆盖 M0 或大规模重构。提交 PR，返回 SHA、验证结果和交接说明。
+> 确认 accding/33333 为 private 且完成初始化后，在 mobile/任务名 分支完成【范围】。先拉取 main，阅读 AGENTS.md；保留独白与授权边界，用合成数据验证，不上传日记或凭据。不要改写历史、覆盖 M0 或大规模重构。提交 PR，返回 SHA、验证结果和交接说明。
 
 ## Windows 第一次连接（PowerShell）
 
@@ -30,7 +30,7 @@
 ```powershell
 gh auth login
 gh auth setup-git
-git clone https://github.com/accding/weiyan.git
+git clone https://github.com/accding/33333.git weiyan
 Set-Location weiyan
 git remote -v
 git status
