@@ -54,7 +54,15 @@ JSON 备份格式为 `WEIYAN_LOCAL_BACKUP`，版本 1；导入上限 35MiB，按
 
 ### 上传与回读
 
-本次上传进行中。推送后核对远程完整 SHA、文件树和 HTML 校验值，确认仍与原始上传的 M1.01 相同；远程 Actions 和分支保护结果随后回填。不将尚未验证的操作记作完成。
+- 已正常推送 main；初次上传提交：`33c316a0e6149542ff4ba72c8f47cbc500e1660d`。远程默认分支 main、仓库非空、可见性 PUBLIC 均已回读确认。
+- 已从 GitHub 内容 API 下载 HTML 并与本地和上传包清单逐字节/哈希核对：38869 字节，SHA256 `0b57050594832dcc4259dea4e1902b7838b417484b6aa1658f8caae151454d9b`，与原始 M1.01 一致。
+- 首次远程 [Repository safety 检查](https://github.com/accding/33333/actions/runs/41020391637) 已成功，覆盖索引安全检查、差异检查和 JavaScript 语法。
+- 原始提交历史完整保留；没有强推、覆盖原型或大规模重构，没有导入尚未提供的 Android M0。未启用 GitHub Pages 或日记服务。
+- 本交付记录使用独立 docs/verify-initial-upload 分支经 PR 更新；最新提交可在仓库 main 的历史中查看。
+
+### 主分支保护
+
+工具已请求 main 必须经过 PR、Repository safety 检查、解决会话，并禁止 force push 和删除；GitHub 返回 HTTP 403 `Resource not accessible by integration`。因此服务器分支保护**未启用**。现有分支/PR/CI 流程可用；如要强制实施，仓库所有者可在 Settings → Branches 或 Rules 中配置 main。本项权限不足不阻止已获授权的源码上传。
 
 ### 权限记录
 
