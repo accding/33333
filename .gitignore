@@ -1,0 +1,31 @@
+# Secrets / private local data
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+*.p12
+*.pem
+*.key
+local.properties
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+private/
+data/
+backups/
+exports/
+*.log
+# Android / Gradle / editor outputs
+.gradle/
+.idea/
+*.iml
+build/
+**/build/
+local.properties
+# JS build caches
+node_modules/
+dist/
+.cache/
+.DS_Store
