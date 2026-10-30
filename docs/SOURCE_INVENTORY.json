@@ -1,0 +1,40 @@
+{
+  "source": "未言_手机电脑协同开发_GitHub准备包.zip",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 333,
+      "sha256": "170203c552afece45a2d8256fb70c52cdcf200840a8d98923429d6ca9715130d"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2507,
+      "sha256": "1d87b345ac90a6450ba5e95668e93c6eacbee643373052c97056a005090156db"
+    },
+    {
+      "path": "WORK_HANDOFF_PROMPT.txt",
+      "bytes": 1574,
+      "sha256": "683e1a98869616e61d12b5297ca7a53a4a4ad158ce1a0071e6e956dc2d23c6b7"
+    },
+    {
+      "path": "docs/DEVELOPMENT_HANDOFF.md",
+      "bytes": 1957,
+      "sha256": "75e79b2b28445d022630e369c0035e0a4a4e78b7c3815166c9ec4c1247922f55"
+    },
+    {
+      "path": "docs/PRODUCT_PRINCIPLES.md",
+      "bytes": 1332,
+      "sha256": "a66e0f669794328f6513d2cbe14915b3fd7c66fe4d49bd46ac0ddb3ea7bc8185"
+    },
+    {
+      "path": "docs/TEST_CHECKLIST.md",
+      "bytes": 924,
+      "sha256": "9c54c3ebe2556f9207dca390452b06fbce561a0c0f2fa83b60f2822883a37ace"
+    },
+    {
+      "path": "prototypes/mobile-m1/index.html",
+      "bytes": 38869,
+      "sha256": "0b57050594832dcc4259dea4e1902b7838b417484b6aa1658f8caae151454d9b"
+    }
+  ]
+}

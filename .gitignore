@@ -29,3 +29,36 @@ node_modules/
 dist/
 .cache/
 .DS_Store
+
+# Android local credentials, device data and generated packages
+.envrc
+key.properties
+keystore.properties
+secrets.properties
+credentials.json
+google-services.json
+*.pfx
+*.der
+*.cer
+*.apk
+*.aab
+*.hprof
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3-wal
+*.sqlite3-shm
+captures/
+.kotlin/
+.cxx/
+.externalNativeBuild/
+.venv/
+__pycache__/
+*.pyc
+
+# User-created diary exports (source JSON files are reviewed separately)
+*未言备份*.json
+*weiyan*backup*.json
+*.bundle
+*.zip

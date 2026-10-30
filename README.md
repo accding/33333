@@ -43,3 +43,25 @@
 2. 手机端通过 ChatGPT Work / 云端开发工具修改仓库并提交 PR；Windows 端拉取经审查的提交。
 3. Windows Android M0 工程尚未获取；回到电脑后先备份，再导入 `android/` 目录或独立分支，做架构检查，不得直接覆盖。
 4. **Git 同步不等于云端自动保存，也不等于不同设备间的日记数据同步。**
+
+## 协同开发启动（2026-10-30）
+
+原始 7 个文件保留在首次提交中；本次不修改 `prototypes/mobile-m1/index.html`。新增仓库安全检查、CI、PR 模板和协同文档，后续修改在任务分支经 PR 进行。
+
+- [项目状态与验证结果](docs/PROJECT_STATUS.md)
+- [安全检查及已知风险](docs/SECURITY_REVIEW.md)
+- [手机与 Windows 的具体命令和冲突处理](docs/COLLABORATION.md)
+- [Android M0 备份、独立导入和合并方案](docs/ANDROID_M0_IMPORT.md)
+- [原始文件 SHA256 清单](docs/SOURCE_INVENTORY.json)
+
+**当前阻塞问题：已保存的无图记录被全部擦空后，刷新可能恢复旧正文。** 已用合成数据复现；正式使用前需单独修复并验证。加密、可靠持久化、数据同步和 Android 构建均未完成。
+
+提交前先人工检查具体文件，再运行：
+
+```sh
+python tools/check_repository.py
+git diff --cached --check
+git diff --cached
+```
+
+检查器读取 Git 索引，需在添加审核后的文件后运行。不要将真实日记、照片或备份放在项目中；私人仓库也不用于存储个人日记。
